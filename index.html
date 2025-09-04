@@ -3,41 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Переход на localhost</title>
+    <title>Minecraft Крафт - Генератор рецептов</title>
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+        :root {
+            --primary: #4CAF50;
+            --primary-dark: #2E7D32;
+            --secondary: #795548;
+            --background: #f5f5f5;
+            --text: #212121;
+            --grid-bg: #8BC34A;
+            --grid-slot: #A5D6A7;
         }
         
-        .btn {
-            padding: 15px 30px;
-            font-size: 18px;
-            background-color: #4CAF50;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        
+        .search-container {
+            display: flex;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        #search {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            font-size: 1rem;
+        }
+        
+        #search-btn {
+            background: var(--primary-dark);
             color: white;
             border: none;
-            border-radius: 5px;
+            padding: 0 1.5rem;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: background 0.3s;
         }
         
-        .btn:hover {
-            background-color: #45a049;
+        #search-btn:hover {
+            background: #1B5E20;
+        }
+        
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .category-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover, .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .results {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .item-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .item-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .item-header {
+            background: var(--primary);
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .item-content {
+            padding: 1rem;
+        }
+        
+        .crafting-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2px;
+            background-color: var(--grid-bg);
+            padding: 5px;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+        
+        .craft-slot {
+            aspect-ratio: 1;
+            background-color: var(--grid-slot);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #78909C;
+        }
+        
+        .craft-slot img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        
+        .item-desc {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 2rem;
+            color: #757575;
+            grid-column: 1 / -1;
+        }
+        
+        @media (max-width: 768px) {
+            .results {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <button class="btn" onclick="redirectToLocalhost()">Перейти на localhost</button>
+    <header>
+        <h1>Minecraft Генератор рецептов крафта</h1>
+        <p>Найдите рецепты крафта для любого предмета</p>
+    </header>
+    
+    <div class="container">
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Введите название предмета...">
+            <button id="search-btn">Поиск</button>
+        </div>
+        
+        <div class="categories">
+            <button class="category-btn active" data-category="all">Все предметы</button>
+            <button class="category-btn" data-category="tools">Инструменты</button>
+            <button class="category-btn" data-category="weapons">Оружие</button>
+            <button class="category-btn" data-category="food">Еда</button>
+            <button class="category-btn" data-category="building">Строительные блоки</button>
+            <button class="category-btn" data-category="redstone">Редстоун</button>
+        </div>
+        
+        <div class="results" id="results">
+            <div class="empty-state">
+                <h3>Начните поиск, чтобы увидеть рецепты крафта</h3>
+                <p>Попробуйте найти: алмазная кирка, суп из грибов, факел</p>
+            </div>
+        </div>
+    </div>
 
     <script>
-        function redirectToLocalhost() {
-            window.location.href = 'http://localhost:8080';
+        // База данных рецептов крафта
+        const items = [
+            {
+                id: 1,
+                name: "Алмазная кирка",
+                category: "tools",
+                recipe: [
+                    "алмаз", "алмаз", "алмаз",
+                    null, "палка", null,
+                    null, "палка", null
+                ],
+                description: "Прочная кирка для добычи редких руд"
+            },
+            {
+                id: 2,
+                name: "Каменный меч",
+                category: "weapons",
+                recipe: [
+                    null, "булыжник", null,
+                    null, "булыжник", null,
+                    null, "палка", null
+                ],
+                description: "Основное оружие для защиты от мобов"
+            },
+            {
+                id: 3,
+                name: "Факел",
+                category: "building",
+                recipe: [
+                    null, "уголь", null,
+                    null, "палка", null,
+                    null, null, null
+                ],
+                description: "Источник света, предотвращающий появление мобов"
+            },
+            {
+                id: 4,
+                name: "Суп из грибов",
+                category: "food",
+                recipe: [
+                    "красный гриб", "коричневый гриб", "миска",
+                    null, null, null,
+                    null, null, null
+                ],
+                description: "Восстанавливает 3 единицы голода"
+            },
+            {
+                id: 5,
+                name: "Редстоуновый факел",
+                category: "redstone",
+                recipe: [
+                    null, "редстоун", null,
+                    null, "палка", null,
+                    null, null, null
+                ],
+                description: "Источник питания для редстоуновых схем"
+            },
+            {
+                id: 6,
+                name: "Наковальня",
+                category: "tools",
+                recipe: [
+                    "железный слиток", "железный слиток", "железный слиток",
+                    null, "железный блок", null,
+                    "железный блок", "железный блок", "железный блок"
+                ],
+                description: "Ремонтирует и переименовывает предметы"
+            }
+        ];
+
+        // Элементы DOM
+        const searchInput = document.getElementById('search');
+        const searchBtn = document.getElementById('search-btn');
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const resultsContainer = document.getElementById('results');
+        
+        // Текущий фильтр
+        let currentCategory = 'all';
+        let currentSearch = '';
+        
+        // Функция отображения предметов
+        function displayItems() {
+            const filteredItems = items.filter(item => {
+                const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+                const matchesSearch = item.name.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+            
+            resultsContainer.innerHTML = '';
+            
+            if (filteredItems.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Ничего не найдено</h3>
+                        <p>Попробуйте изменить поисковый запрос или выбрать другую категорию</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredItems.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'item-card';
+                
+                // Создаем сетку крафта
+                let craftGrid = '';
+                for (let i = 0; i < 9; i++) {
+                    const ingredient = item.recipe[i] || '';
+                    craftGrid += `
+                        <div class="craft-slot">
+                            ${ingredient ? `<span>${ingredient}</span>` : ''}
+                        </div>
+                    `;
+                }
+                
+                itemEl.innerHTML = `
+                    <div class="item-header">${item.name}</div>
+                    <div class="item-content">
+                        <div class="crafting-grid">
+                            ${craftGrid}
+                        </div>
+                        <p class="item-desc">${item.description}</p>
+                    </div>
+                `;
+                
+                resultsContainer.appendChild(itemEl);
+            });
         }
+        
+        // Обработчики событий
+        searchBtn.addEventListener('click', () => {
+            currentSearch = searchInput.value;
+            displayItems();
+        });
+        
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                currentSearch = searchInput.value;
+                displayItems();
+            }
+        });
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                displayItems();
+            });
+        });
+        
+        // Инициализация
+        displayItems();
     </script>
 </body>
 </html>
