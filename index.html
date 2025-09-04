@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-    <title>Redirecting to Server...</title>
-    <meta http-equiv="refresh" content="0; url=http://localhost/" />
-    <script>
-        // Резервный скрипт на случай, если мета-тег не сработает
-        window.location.href = 'http://localhost';
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переход на localhost</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not redirected automatically, please click <a href="http://localhost">here</a>.</p>
+    <button class="btn" onclick="redirectToLocalhost()">Перейти на localhost</button>
+
+    <script>
+        function redirectToLocalhost() {
+            window.location.href = 'http://localhost';
+        }
+    </script>
 </body>
 </html>
