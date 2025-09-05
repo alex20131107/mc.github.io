@@ -3,21 +3,70 @@
     "name": "Верстак",
     "category": "building",
     "description": "Основной блок для крафта предметов 3x3",
-    "image": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23866b4d'/><rect x='40' y='40' width='120' height='120' fill='%23654f38' stroke='%23333' stroke-width='5'/><rect x='60' y='60' width='20' height='20' fill='%23333'/><rect x='120' y='60' width='20' height='20' fill='%23333'/><rect x='60' y='120' width='20' height='20' fill='%23333'/><rect x='120' y='120' width='20' height='20' fill='%23333'/></svg>",
+    "image": "crafting_table.png",
     "recipe": ["oak_planks", "oak_planks", null, "oak_planks", "oak_planks", null, null, null, null]
   },
   {
     "name": "Деревянная кирка",
     "category": "tools",
     "description": "Основной инструмент для добычи камня и руд",
-    "image": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M50,50 L150,50 L150,150 L50,150 Z' fill='%23866b4d'/><path d='M80,60 L120,60 L120,90 L80,90 Z' fill='%23654f38'/><path d='M90,100 L110,100 L110,180 L90,180 Z' fill='%23654f38'/></svg>",
+    "image": "wooden_pickaxe.png",
     "recipe": ["oak_planks", "oak_planks", "oak_planks", null, "stick", null, null, "stick", null]
   },
   {
     "name": "Факел",
     "category": "decoration",
     "description": "Источник света, который можно разместить на стенах",
-    "image": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><circle cx='100' cy='70' r='30' fill='%23ffcc00'/><path d='M100,100 L100,180' stroke='%23654f38' stroke-width='15'/></svg>",
+    "image": "torch.png",
     "recipe": ["coal", null, null, "stick", null, null, null, null, null]
+  },
+  {
+    "name": "Сундук",
+    "category": "storage",
+    "description": "Блок для хранения предметов",
+    "image": "chest.png",
+    "recipe": ["oak_planks", "oak_planks", "oak_planks", "oak_planks", null, "oak_planks", "oak_planks", "oak_planks", "oak_planks"]
+  },
+  {
+    "name": "Каменная печь",
+    "category": "building",
+    "description": "Используется для плавки руд и приготовления пищи",
+    "image": "furnace.png",
+    "recipe": ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone", "cobblestone"]
+  },
+  {
+    "name": "Деревянный меч",
+    "category": "weapons",
+    "description": "Простое оружие для защиты от мобов",
+    "image": "wooden_sword.png",
+    "recipe": [null, "oak_planks", null, null, "oak_planks", null, null, "stick", null]
+  },
+  {
+    "name": "Кожаная шапка",
+    "category": "armor",
+    "description": "Броня для головы, защищает от урона",
+    "image": "leather_helmet.png",
+    "recipe": ["leather", "leather", "leather", "leather", null, "leather", null, null, null]
+  },
+  {
+    "name": "Хлеб",
+    "category": "food",
+    "description": "Простая пища, восстанавливающая голод",
+    "image": "bread.png",
+    "recipe": [null, null, null, "wheat", "wheat", "wheat", null, null, null]
+  },
+  {
+    "name": "Редстоуновый факел",
+    "category": "redstone",
+    "description": "Источник питания для редстоуновых схем",
+    "image": "redstone_torch.png",
+    "recipe": ["redstone", null, null, "stick", null, null, null, null, null]
+  },
+  {
+    "name": "Наковальня",
+    "category": "tools",
+    "description": "Позволяет чинить и переименовывать предметы",
+    "image": "anvil.png",
+    "recipe": ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
   }
 ]
