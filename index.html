@@ -17,6 +17,7 @@
             color: #f0f0f0;
             line-height: 1.6;
             padding: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23222" /><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1" /></svg>');
         }
         
         header {
@@ -26,11 +27,13 @@
             background-color: #2d2d2d;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4CAF50;
         }
         
         h1 {
             color: #4CAF50;
             margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
         
         .search-container {
@@ -46,6 +49,11 @@
             background-color: #333;
             color: white;
             font-size: 16px;
+            outline: none;
+        }
+        
+        #search:focus {
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.8);
         }
         
         .category-filter {
@@ -84,10 +92,12 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
+            border: 1px solid #444;
         }
         
         .craft-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         
         .craft-image {
@@ -96,6 +106,7 @@
             object-fit: contain;
             background-color: #3d3d3d;
             padding: 10px;
+            border-bottom: 1px solid #444;
         }
         
         .craft-info {
@@ -161,6 +172,13 @@
             margin-top: 40px;
             padding: 20px;
             color: #888;
+            border-top: 1px solid #444;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
         }
         
         @media (max-width: 768px) {
@@ -203,7 +221,7 @@
     
     <main>
         <div class="crafts-container" id="crafts-container">
-            <!-- Крафты будут загружены через JavaScript -->
+            <div class="loading">Загрузка крафтов...</div>
         </div>
     </main>
     
@@ -212,28 +230,99 @@
     </footer>
 
     <script>
-        // Загрузка данных о крафтах
-        async function loadCrafts() {
-            try {
-                const response = await fetch('crafts.json');
-                const crafts = await response.json();
-                displayCrafts(crafts);
-                setupSearch(crafts);
-                setupCategoryFilter(crafts);
-            } catch (error) {
-                console.error('Ошибка загрузки данных:', error);
-                document.getElementById('crafts-container').innerHTML = 
-                    '<p>Не удалось загрузить данные о крафтах.</p>';
+        // Данные о крафтах (вместо отдельного файла crafts.json)
+        const crafts = [
+            {
+                name: "Верстак",
+                category: "building",
+                description: "Основной блок для крафта предметов 3x3",
+                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                recipe: ["oak_planks", "oak_planks", null, "oak_planks", "oak_planks", null, null, null, null]
+            },
+            {
+                name: "Деревянная кирка",
+                category: "tools",
+                description: "Основной инструмент для добычи камня и руд",
+                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                recipe: ["oak_planks", "oak_planks", "oak_planks", null, "stick", null, null, "stick", null]
+            },
+            {
+                name: "Факел",
+                category: "decoration",
+                description: "Источник света, который можно разместить на стенах",
+                image: "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=200&h=200&fit=crop",
+                recipe: ["coal", null, null, "stick", null, null, null, null, null]
+            },
+            {
+                name: "Сундук",
+                category: "storage",
+                description: "Блок для хранения предметов",
+                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                recipe: ["oak_planks", "oak_planks", "oak_planks", "oak_planks", null, "oak_planks", "oak_planks", "oak_planks", "oak_planks"]
+            },
+            {
+                name: "Каменная печь",
+                category: "building",
+                description: "Используется для плавки руд и приготовления пищи",
+                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                recipe: ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone", "cobblestone"]
+            },
+            {
+                name: "Деревянный меч",
+                category: "weapons",
+                description: "Простое оружие для защиты от мобов",
+                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                recipe: [null, "oak_planks", null, null, "oak_planks", null, null, "stick", null]
+            },
+            {
+                name: "Кожаная шапка",
+                category: "armor",
+                description: "Броня для головы, защищает от урона",
+                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                recipe: ["leather", "leather", "leather", "leather", null, "leather", null, null, null]
+            },
+            {
+                name: "Хлеб",
+                category: "food",
+                description: "Простая пища, восстанавливающая голод",
+                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                recipe: [null, null, null, "wheat", "wheat", "wheat", null, null, null]
+            },
+            {
+                name: "Редстоуновый факел",
+                category: "redstone",
+                description: "Источник питания для редстоуновых схем",
+                image: "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=200&h=200&fit=crop",
+                recipe: ["redstone", null, null, "stick", null, null, null, null, null]
+            },
+            {
+                name: "Наковальня",
+                category: "tools",
+                description: "Позволяет чинить и переименовывать предметы",
+                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                recipe: ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
             }
-        }
-        
+        ];
+
+        // Изображения для рецептов (в реальном приложении они бы загружались из crafts.json)
+        const itemImages = {
+            "oak_planks": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
+            "stick": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
+            "coal": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
+            "cobblestone": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop",
+            "leather": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
+            "wheat": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
+            "redstone": "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=50&h=50&fit=crop",
+            "iron_block": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop",
+            "iron_ingot": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop"
+        };
+
         // Отображение крафтов
-        function displayCrafts(crafts, filteredCrafts = null) {
+        function displayCrafts(craftsToDisplay = crafts) {
             const container = document.getElementById('crafts-container');
-            const craftsToDisplay = filteredCrafts || crafts;
             
             if (craftsToDisplay.length === 0) {
-                container.innerHTML = '<p>Крафты не найдены.</p>';
+                container.innerHTML = '<p class="loading">Крафты не найдены.</p>';
                 return;
             }
             
@@ -248,10 +337,10 @@
                 if (craft.recipe && Array.isArray(craft.recipe)) {
                     recipeGrid = '<div class="recipe-grid">';
                     craft.recipe.forEach(item => {
-                        if (item) {
+                        if (item && itemImages[item]) {
                             recipeGrid += `
                                 <div class="recipe-item">
-                                    <img src="png/${item}.png" alt="${item}" title="${item}">
+                                    <img src="${itemImages[item]}" alt="${item}" title="${item}">
                                 </div>
                             `;
                         } else {
@@ -262,7 +351,7 @@
                 }
                 
                 card.innerHTML = `
-                    <img class="craft-image" src="png/${craft.image}" alt="${craft.name}">
+                    <img class="craft-image" src="${craft.image}" alt="${craft.name}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%23333%22 /><text x=%22100%22 y=%22100%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>${craft.name}</text></svg>'">
                     <div class="craft-info">
                         <h2 class="craft-title">${craft.name}</h2>
                         <span class="craft-category">${craft.category}</span>
@@ -279,28 +368,29 @@
         }
         
         // Настройка поиска
-        function setupSearch(crafts) {
+        function setupSearch() {
             const searchInput = document.getElementById('search');
             
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 
                 if (searchTerm.length < 2) {
-                    displayCrafts(crafts);
+                    displayCrafts();
                     return;
                 }
                 
                 const filteredCrafts = crafts.filter(craft => 
                     craft.name.toLowerCase().includes(searchTerm) ||
-                    craft.description.toLowerCase().includes(searchTerm)
+                    craft.description.toLowerCase().includes(searchTerm) ||
+                    craft.category.toLowerCase().includes(searchTerm)
                 );
                 
-                displayCrafts(crafts, filteredCrafts);
+                displayCrafts(filteredCrafts);
             });
         }
         
         // Настройка фильтра по категориям
-        function setupCategoryFilter(crafts) {
+        function setupCategoryFilter() {
             const categoryButtons = document.querySelectorAll('.category-btn');
             
             categoryButtons.forEach(button => {
@@ -313,19 +403,23 @@
                     const category = button.getAttribute('data-category');
                     
                     if (category === 'all') {
-                        displayCrafts(crafts);
+                        displayCrafts();
                     } else {
                         const filteredCrafts = crafts.filter(craft => 
                             craft.category === category
                         );
-                        displayCrafts(crafts, filteredCrafts);
+                        displayCrafts(filteredCrafts);
                     }
                 });
             });
         }
         
         // Загружаем крафты при загрузке страницы
-        document.addEventListener('DOMContentLoaded', loadCrafts);
+        document.addEventListener('DOMContentLoaded', () => {
+            displayCrafts();
+            setupSearch();
+            setupCategoryFilter();
+        });
     </script>
 </body>
 </html>
