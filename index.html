@@ -17,6 +17,7 @@
             color: #f0f0f0;
             line-height: 1.6;
             padding: 20px;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23222" /><path d="M0 0L100 100M100 0L0 100" stroke="%23333" stroke-width="1" /></svg>');
         }
         
         header {
@@ -26,11 +27,13 @@
             background-color: #2d2d2d;
             border-radius: 10px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4CAF50;
         }
         
         h1 {
             color: #4CAF50;
             margin-bottom: 10px;
+            text-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
         }
         
         .search-container {
@@ -46,6 +49,11 @@
             background-color: #333;
             color: white;
             font-size: 16px;
+            outline: none;
+        }
+        
+        #search:focus {
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.8);
         }
         
         .category-filter {
@@ -84,10 +92,12 @@
             overflow: hidden;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s;
+            border: 1px solid #444;
         }
         
         .craft-card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
         }
         
         .craft-image {
@@ -96,6 +106,7 @@
             object-fit: contain;
             background-color: #3d3d3d;
             padding: 10px;
+            border-bottom: 1px solid #444;
         }
         
         .craft-info {
@@ -161,6 +172,20 @@
             margin-top: 40px;
             padding: 20px;
             color: #888;
+            border-top: 1px solid #444;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 20px;
+            color: #ff5555;
+            font-size: 1.2rem;
         }
         
         @media (max-width: 768px) {
@@ -203,7 +228,7 @@
     
     <main>
         <div class="crafts-container" id="crafts-container">
-            <!-- Крафты будут загружены через JavaScript -->
+            <div class="loading">Загрузка крафтов...</div>
         </div>
     </main>
     
@@ -212,10 +237,13 @@
     </footer>
 
     <script>
-        // Загрузка данных о крафтах
+        // Загрузка данных из crafts.json
         async function loadCrafts() {
             try {
                 const response = await fetch('crafts.json');
+                if (!response.ok) {
+                    throw new Error('Не удалось загрузить crafts.json');
+                }
                 const crafts = await response.json();
                 displayCrafts(crafts);
                 setupSearch(crafts);
@@ -223,7 +251,7 @@
             } catch (error) {
                 console.error('Ошибка загрузки данных:', error);
                 document.getElementById('crafts-container').innerHTML = 
-                    '<p>Не удалось загрузить данные о крафтах.</p>';
+                    '<div class="error">Ошибка загрузки данных: ' + error.message + '</div>';
             }
         }
         
@@ -233,7 +261,7 @@
             const craftsToDisplay = filteredCrafts || crafts;
             
             if (craftsToDisplay.length === 0) {
-                container.innerHTML = '<p>Крафты не найдены.</p>';
+                container.innerHTML = '<p class="loading">Крафты не найдены.</p>';
                 return;
             }
             
@@ -251,7 +279,7 @@
                         if (item) {
                             recipeGrid += `
                                 <div class="recipe-item">
-                                    <img src="png/${item}.png" alt="${item}" title="${item}">
+                                    <img src="png/${item}.png" alt="${item}" title="${item}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22 viewBox=%220 0 40 40%22><rect width=%2240%22 height=%2240%22 fill=%22%23333%22 /><text x=%2220%22 y=%2220%22 font-family=%22Arial%22 font-size=%2210%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>${item}</text></svg>'">
                                 </div>
                             `;
                         } else {
@@ -262,7 +290,7 @@
                 }
                 
                 card.innerHTML = `
-                    <img class="craft-image" src="png/${craft.image}" alt="${craft.name}">
+                    <img class="craft-image" src="png/${craft.image}" alt="${craft.name}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%23333%22 /><text x=%22100%22 y=%22100%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>${craft.name}</text></svg>'">
                     <div class="craft-info">
                         <h2 class="craft-title">${craft.name}</h2>
                         <span class="craft-category">${craft.category}</span>
@@ -292,7 +320,8 @@
                 
                 const filteredCrafts = crafts.filter(craft => 
                     craft.name.toLowerCase().includes(searchTerm) ||
-                    craft.description.toLowerCase().includes(searchTerm)
+                    craft.description.toLowerCase().includes(searchTerm) ||
+                    craft.category.toLowerCase().includes(searchTerm)
                 );
                 
                 displayCrafts(crafts, filteredCrafts);
