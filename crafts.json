@@ -1,326 +1,72 @@
 [
-    {
-        "id": 1,
-        "name": "Деревянная кирка",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/9/9a/Wooden_Pickaxe_JE3_BE2.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/9/96/Oak_Planks_JE6_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/9/96/Oak_Planks_JE6_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/9/96/Oak_Planks_JE6_BE3.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Базовая кирка для добычи камня и угля"
-    },
-    {
-        "id": 2,
-        "name": "Каменная кирка",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/0/0a/Stone_Pickaxe_JE3_BE2.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/a/a0/Cobblestone_JE4_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/a/a0/Cobblestone_JE4_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/a/a0/Cobblestone_JE4_BE3.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Кирка для добычи железа и других руд"
-    },
-    {
-        "id": 3,
-        "name": "Железная кирка",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/c/cb/Iron_Pickaxe_JE3_BE2.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Прочная кирка для добычи золота и редстоуна"
-    },
-    {
-        "id": 4,
-        "name": "Алмазная кирка",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/9/9a/Diamond_Pickaxe_JE3_BE3.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/4/4a/Diamond_JE3_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/4/4a/Diamond_JE3_BE3.png",
-            "https://static.wikia.nocookie.net/minecraft/images/4/4a/Diamond_JE3_BE3.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Прочная кирка для добычи обсидиана"
-    },
-    {
-        "id": 5,
-        "name": "Золотая кирка",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/0/0b/Golden_Pickaxe_JE3_BE2.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Быстрая, но недолговечная кирка"
-    },
-    {
-        "id": 6,
-        "name": "Деревянный меч",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/2/2a/Wooden_Sword_JE3_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/9/96/Oak_Planks_JE6_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/9/96/Oak_Planks_JE6_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Слабый меч для защиты от мобов. Урон: 4"
-    },
-    {
-        "id": 7,
-        "name": "Каменный меч",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/7/7a/Stone_Sword_JE2_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/a/a0/Cobblestone_JE4_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/a/a0/Cobblestone_JE4_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Основное оружие. Урон: 5"
-    },
-    {
-        "id": 8,
-        "name": "Железный меч",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/0/06/Iron_Sword_JE3_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Хорошее оружие. Урон: 6"
-    },
-    {
-        "id": 9,
-        "name": "Алмазный меч",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/3/3b/Diamond_Sword_JE3_BE3.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/4/4a/Diamond_JE3_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/4/4a/Diamond_JE3_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Мощное оружие. Урон: 7"
-    },
-    {
-        "id": 10,
-        "name": "Золотой меч",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/4/4c/Golden_Sword_JE3_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null
-        ],
-        "description": "Быстрый, но слабый меч. Урон: 4"
-    },
-    {
-        "id": 11,
-        "name": "Факел",
-        "category": "building",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/7/79/Torch_JE4_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/2/23/Coal_JE3_BE3.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            null,
-            null
-        ],
-        "description": "Источник света, предотвращающий появление мобов"
-    },
-    {
-        "id": 12,
-        "name": "Редстоуновый факел",
-        "category": "redstone",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/9/9a/Redstone_Torch_JE4_BE3.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/c/c4/Redstone_Dust_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            null,
-            null
-        ],
-        "description": "Источник питания для редстоуновых схем"
-    },
-    {
-        "id": 13,
-        "name": "Наковальня",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/8/8c/Anvil_JE3_BE2.png",
-        "recipe": [
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/00/Iron_Block_JE4_BE3.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png"
-        ],
-        "description": "Ремонтирует и переименовывает предметы"
-    },
-    {
-        "id": 14,
-        "name": "Компас",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/7/7c/Compass_JE3_BE3.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/c/c4/Redstone_Dust_JE2_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null
-        ],
-        "description": "Указывает на точку появления"
-    },
-    {
-        "id": 15,
-        "name": "Часы",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/5/5c/Clock_JE3_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/c/c4/Redstone_Dust_JE2_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/0/05/Gold_Ingot_JE3_BE2.png",
-            null
-        ],
-        "description": "Показывает время суток"
-    },
-    {
-        "id": 16,
-        "name": "Ведро",
-        "category": "tools",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/7/72/Bucket_JE2_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/f/fc/Iron_Ingot_JE3_BE2.png",
-            null
-        ],
-        "description": "Используется для переноса жидкостей"
-    },
-    {
-        "id": 17,
-        "name": "Лук",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/6/68/Bow_JE2_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/9/9f/String_JE2_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/9/9f/String_JE2_BE2.png",
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            "https://static.wikia.nocookie.net/minecraft/images/9/9f/String_JE2_BE2.png"
-        ],
-        "description": "Стреляет стрелами. Урон: 4-9"
-    },
-    {
-        "id": 18,
-        "name": "Стрелы",
-        "category": "weapons",
-        "image": "https://static.wikia.nocookie.net/minecraft/images/6/6d/Arrow_JE2_BE2.png",
-        "recipe": [
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/6/6f/Flint_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/5/5c/Stick_JE2_BE2.png",
-            null,
-            null,
-            "https://static.wikia.nocookie.net/minecraft/images/a/a5/Feather_JE2_BE2.png",
-            null
-        ],
-        "description": "Боеприпасы для лука. Урон: 2-5"
-    }
+  {
+    "name": "Верстак",
+    "category": "building",
+    "description": "Основной блок для крафта предметов 3x3",
+    "image": "crafting_table.png",
+    "recipe": ["oak_planks", "oak_planks", null, "oak_planks", "oak_planks", null, null, null, null]
+  },
+  {
+    "name": "Деревянная кирка",
+    "category": "tools",
+    "description": "Основной инструмент для добычи камня и руд",
+    "image": "wooden_pickaxe.png",
+    "recipe": ["oak_planks", "oak_planks", "oak_planks", null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Факел",
+    "category": "decoration",
+    "description": "Источник света, который можно разместить на стенах",
+    "image": "torch.png",
+    "recipe": ["coal", null, null, "stick", null, null, null, null, null]
+  },
+  {
+    "name": "Сундук",
+    "category": "storage",
+    "description": "Блок для хранения предметов",
+    "image": "chest.png",
+    "recipe": ["oak_planks", "oak_planks", "oak_planks", "oak_planks", null, "oak_planks", "oak_planks", "oak_planks", "oak_planks"]
+  },
+  {
+    "name": "Каменная печь",
+    "category": "building",
+    "description": "Используется для плавки руд и приготовления пищи",
+    "image": "furnace.png",
+    "recipe": ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone", "cobblestone"]
+  },
+  {
+    "name": "Деревянный меч",
+    "category": "weapons",
+    "description": "Простое оружие для защиты от мобов",
+    "image": "wooden_sword.png",
+    "recipe": [null, "oak_planks", null, null, "oak_planks", null, null, "stick", null]
+  },
+  {
+    "name": "Кожаная шапка",
+    "category": "armor",
+    "description": "Броня для головы, защищает от урона",
+    "image": "leather_helmet.png",
+    "recipe": ["leather", "leather", "leather", "leather", null, "leather", null, null, null]
+  },
+  {
+    "name": "Хлеб",
+    "category": "food",
+    "description": "Простая пища, восстанавливающая голод",
+    "image": "bread.png",
+    "recipe": [null, null, null, "wheat", "wheat", "wheat", null, null, null]
+  },
+  {
+    "name": "Редстоуновый факел",
+    "category": "redstone",
+    "description": "Источник питания для редстоуновых схем",
+    "image": "redstone_torch.png",
+    "recipe": ["redstone", null, null, "stick", null, null, null, null, null]
+  },
+  {
+    "name": "Наковальня",
+    "category": "tools",
+    "description": "Позволяет чинить и переименовывать предметы",
+    "image": "anvil.png",
+    "recipe": ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
+  }
 ]
