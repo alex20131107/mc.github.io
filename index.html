@@ -230,91 +230,91 @@
     </footer>
 
     <script>
-        // Данные о крафтах (вместо отдельного файла crafts.json)
+        // Данные о крафтах
         const crafts = [
             {
                 name: "Верстак",
                 category: "building",
                 description: "Основной блок для крафта предметов 3x3",
-                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23866b4d'/><rect x='40' y='40' width='120' height='120' fill='%23654f38' stroke='%23333' stroke-width='5'/><rect x='60' y='60' width='20' height='20' fill='%23333'/><rect x='120' y='60' width='20' height='20' fill='%23333'/><rect x='60' y='120' width='20' height='20' fill='%23333'/><rect x='120' y='120' width='20' height='20' fill='%23333'/></svg>",
                 recipe: ["oak_planks", "oak_planks", null, "oak_planks", "oak_planks", null, null, null, null]
             },
             {
                 name: "Деревянная кирка",
                 category: "tools",
                 description: "Основной инструмент для добычи камня и руд",
-                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M50,50 L150,50 L150,150 L50,150 Z' fill='%23866b4d'/><path d='M80,60 L120,60 L120,90 L80,90 Z' fill='%23654f38'/><path d='M90,100 L110,100 L110,180 L90,180 Z' fill='%23654f38'/></svg>",
                 recipe: ["oak_planks", "oak_planks", "oak_planks", null, "stick", null, null, "stick", null]
             },
             {
                 name: "Факел",
                 category: "decoration",
                 description: "Источник света, который можно разместить на стенах",
-                image: "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><circle cx='100' cy='70' r='30' fill='%23ffcc00'/><path d='M100,100 L100,180' stroke='%23654f38' stroke-width='15'/></svg>",
                 recipe: ["coal", null, null, "stick", null, null, null, null, null]
             },
             {
                 name: "Сундук",
                 category: "storage",
                 description: "Блок для хранения предметов",
-                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23866b4d'/><rect x='30' y='30' width='140' height='140' fill='%23654f38' stroke='%23333' stroke-width='5'/><rect x='50' y='50' width='100' height='20' fill='%23333'/><rect x='50' y='90' width='100' height='20' fill='%23333'/></svg>",
                 recipe: ["oak_planks", "oak_planks", "oak_planks", "oak_planks", null, "oak_planks", "oak_planks", "oak_planks", "oak_planks"]
             },
             {
                 name: "Каменная печь",
                 category: "building",
                 description: "Используется для плавки руд и приготовления пищи",
-                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%23666'/><rect x='30' y='30' width='140' height='140' fill='%23444' stroke='%23333' stroke-width='5'/><rect x='50' y='50' width='100' height='20' fill='%23333'/><rect x='80' y='80' width='40' height='40' fill='%23ff3300'/></svg>",
                 recipe: ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone", "cobblestone"]
             },
             {
                 name: "Деревянный меч",
                 category: "weapons",
                 description: "Простое оружие для защиты от мобов",
-                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M100,30 L100,180' stroke='%23654f38' stroke-width='10'/><path d='M70,30 L130,30 L130,70 L70,70 Z' fill='%23654f38'/></svg>",
                 recipe: [null, "oak_planks", null, null, "oak_planks", null, null, "stick", null]
             },
             {
                 name: "Кожаная шапка",
                 category: "armor",
                 description: "Броня для головы, защищает от урона",
-                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M50,50 L150,50 L150,150 L50,150 Z' fill='%23a55229'/><path d='M70,70 L130,70 L130,130 L70,130 Z' fill='%23a55229'/><path d='M50,50 L70,70 L70,130 L50,150 Z' fill='%237b3c1e'/><path d='M150,50 L130,70 L130,130 L150,150 Z' fill='%237b3c1e'/></svg>",
                 recipe: ["leather", "leather", "leather", "leather", null, "leather", null, null, null]
             },
             {
                 name: "Хлеб",
                 category: "food",
                 description: "Простая пища, восстанавливающая голод",
-                image: "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M40,100 C40,70 70,70 100,70 C130,70 160,70 160,100 C160,130 130,150 100,150 C70,150 40,130 40,100 Z' fill='%23d2a85f'/><path d='M60,90 C60,75 75,75 90,75 C105,75 120,75 120,90 C120,105 105,115 90,115 C75,115 60,105 60,90 Z' fill='%23bb954e'/></svg>",
                 recipe: [null, null, null, "wheat", "wheat", "wheat", null, null, null]
             },
             {
                 name: "Редстоуновый факел",
                 category: "redstone",
                 description: "Источник питания для редстоуновых схем",
-                image: "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><circle cx='100' cy='70' r='30' fill='%23ff0000'/><path d='M100,100 L100,180' stroke='%23654f38' stroke-width='15'/></svg>",
                 recipe: ["redstone", null, null, "stick", null, null, null, null, null]
             },
             {
                 name: "Наковальня",
                 category: "tools",
                 description: "Позволяет чинить и переименовывать предметы",
-                image: "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
+                image: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'><rect width='200' height='200' fill='%233d3d3d'/><path d='M30,150 L170,150 L170,180 L30,180 Z' fill='%23777'/><path d='M50,50 L150,50 L150,150 L50,150 Z' fill='%23999'/><path d='M70,30 L130,30 L130,50 L70,50 Z' fill='%23aaa'/></svg>",
                 recipe: ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
             }
         ];
 
-        // Изображения для рецептов (в реальном приложении они бы загружались из crafts.json)
+        // Изображения для рецептов
         const itemImages = {
-            "oak_planks": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
-            "stick": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
-            "coal": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
-            "cobblestone": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop",
-            "leather": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
-            "wheat": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=50&h=50&fit=crop",
-            "redstone": "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=50&h=50&fit=crop",
-            "iron_block": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop",
-            "iron_ingot": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=50&h=50&fit=crop"
+            "oak_planks": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23866b4d'/><rect x='0' y='0' width='50' height='10' fill='%23654f38'/><rect x='0' y='20' width='50' height='10' fill='%23654f38'/><rect x='0' y='40' width='50' height='10' fill='%23654f38'/></svg>",
+            "stick": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%233d3d3d'/><rect x='20' y='5' width='10' height='40' fill='%23654f38'/></svg>",
+            "coal": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23333'/><circle cx='25' cy='25' r='15' fill='%23111'/><circle cx='15' cy='15' r='5' fill='%23555'/><circle cx='35' cy='20' r='7' fill='%23555'/><circle cx='25' cy='35' r='6' fill='%23555'/></svg>",
+            "cobblestone": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23777'/><rect x='5' y='5' width='15' height='10' fill='%23666'/><rect x='30' y='10' width='15' height='12' fill='%23666'/><rect x='10' y='30' width='20' height='8' fill='%23666'/><rect x='35' y='35' width='10' height='10' fill='%23666'/></svg>",
+            "leather": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23a55229'/><rect x='5' y='5' width='40' height='40' fill='%237b3c1e'/><rect x='15' y='15' width='20' height='20' fill='%23a55229'/></svg>",
+            "wheat": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%233d3d3d'/><path d='M25,5 L25,45' stroke='%23654f38' stroke-width='3'/><path d='M25,15 L15,20' stroke='%23d2bc65' stroke-width='3'/><path d='M25,25 L15,30' stroke='%23d2bc65' stroke-width='3'/><path d='M25,35 L15,40' stroke='%23d2bc65' stroke-width='3'/><path d='M25,15 L35,20' stroke='%23d2bc65' stroke-width='3'/><path d='M25,25 L35,30' stroke='%23d2bc65' stroke-width='3'/><path d='M25,35 L35,40' stroke='%23d2bc65' stroke-width='3'/></svg>",
+            "redstone": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23333'/><circle cx='25' cy='25' r='15' fill='%23ff0000'/><circle cx='15' cy='15' r='5' fill='%23ff5555'/><circle cx='35' cy='20' r='7' fill='%23ff5555'/><circle cx='25' cy='35' r='6' fill='%23ff5555'/></svg>",
+            "iron_block": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%23d8d8d8'/><rect x='5' y='5' width='40' height='40' fill='%23a8a8a8'/><rect x='10' y='10' width='30' height='30' fill='%23d8d8d8'/><rect x='15' y='15' width='20' height='20' fill='%23a8a8a8'/></svg>",
+            "iron_ingot": "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 50 50'><rect width='50' height='50' fill='%233d3d3d'/><rect x='10' y='15' width='30' height='20' fill='%23d8d8d8'/><rect x='15' y='20' width='20' height='10' fill='%23a8a8a8'/></svg>"
         };
 
         // Отображение крафтов
@@ -351,7 +351,7 @@
                 }
                 
                 card.innerHTML = `
-                    <img class="craft-image" src="${craft.image}" alt="${craft.name}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22200%22 viewBox=%220 0 200 200%22><rect width=%22200%22 height=%22200%22 fill=%22%23333%22 /><text x=%22100%22 y=%22100%22 font-family=%22Arial%22 font-size=%2220%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>${craft.name}</text></svg>'">
+                    <img class="craft-image" src="${craft.image}" alt="${craft.name}">
                     <div class="craft-info">
                         <h2 class="craft-title">${craft.name}</h2>
                         <span class="craft-category">${craft.category}</span>
@@ -394,32 +394,4 @@
             const categoryButtons = document.querySelectorAll('.category-btn');
             
             categoryButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    // Убираем активный класс у всех кнопок
-                    categoryButtons.forEach(btn => btn.classList.remove('active'));
-                    // Добавляем активный класс текущей кнопке
-                    button.classList.add('active');
-                    
-                    const category = button.getAttribute('data-category');
-                    
-                    if (category === 'all') {
-                        displayCrafts();
-                    } else {
-                        const filteredCrafts = crafts.filter(craft => 
-                            craft.category === category
-                        );
-                        displayCrafts(filteredCrafts);
-                    }
-                });
-            });
-        }
-        
-        // Загружаем крафты при загрузке страницы
-        document.addEventListener('DOMContentLoaded', () => {
-            displayCrafts();
-            setupSearch();
-            setupCategoryFilter();
-        });
-    </script>
-</body>
-</html>
+     
