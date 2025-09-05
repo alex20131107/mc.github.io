@@ -237,6 +237,10 @@
     </footer>
 
     <script>
+        // Глобальные переменные для хранения данных
+        let allCrafts = [];
+        let filteredCrafts = [];
+        
         // Загрузка данных из crafts.json
         async function loadCrafts() {
             try {
@@ -244,10 +248,11 @@
                 if (!response.ok) {
                     throw new Error('Не удалось загрузить crafts.json');
                 }
-                const crafts = await response.json();
-                displayCrafts(crafts);
-                setupSearch(crafts);
-                setupCategoryFilter(crafts);
+                allCrafts = await response.json();
+                filteredCrafts = [...allCrafts];
+                displayCrafts();
+                setupSearch();
+                setupCategoryFilter();
             } catch (error) {
                 console.error('Ошибка загрузки данных:', error);
                 document.getElementById('crafts-container').innerHTML = 
@@ -256,18 +261,17 @@
         }
         
         // Отображение крафтов
-        function displayCrafts(crafts, filteredCrafts = null) {
+        function displayCrafts() {
             const container = document.getElementById('crafts-container');
-            const craftsToDisplay = filteredCrafts || crafts;
             
-            if (craftsToDisplay.length === 0) {
+            if (filteredCrafts.length === 0) {
                 container.innerHTML = '<p class="loading">Крафты не найдены.</p>';
                 return;
             }
             
             container.innerHTML = '';
             
-            craftsToDisplay.forEach(craft => {
+            filteredCrafts.forEach(craft => {
                 const card = document.createElement('div');
                 card.className = 'craft-card';
                 
@@ -307,29 +311,30 @@
         }
         
         // Настройка поиска
-        function setupSearch(crafts) {
+        function setupSearch() {
             const searchInput = document.getElementById('search');
             
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 
                 if (searchTerm.length < 2) {
-                    displayCrafts(crafts);
+                    filteredCrafts = [...allCrafts];
+                    displayCrafts();
                     return;
                 }
                 
-                const filteredCrafts = crafts.filter(craft => 
+                filteredCrafts = allCrafts.filter(craft => 
                     craft.name.toLowerCase().includes(searchTerm) ||
                     craft.description.toLowerCase().includes(searchTerm) ||
                     craft.category.toLowerCase().includes(searchTerm)
                 );
                 
-                displayCrafts(crafts, filteredCrafts);
+                displayCrafts();
             });
         }
         
         // Настройка фильтра по категориям
-        function setupCategoryFilter(crafts) {
+        function setupCategoryFilter() {
             const categoryButtons = document.querySelectorAll('.category-btn');
             
             categoryButtons.forEach(button => {
@@ -342,13 +347,13 @@
                     const category = button.getAttribute('data-category');
                     
                     if (category === 'all') {
-                        displayCrafts(crafts);
+                        filteredCrafts = [...allCrafts];
                     } else {
-                        const filteredCrafts = crafts.filter(craft => 
+                        filteredCrafts = allCrafts.filter(craft => 
                             craft.category === category
                         );
-                        displayCrafts(crafts, filteredCrafts);
                     }
+                    displayCrafts();
                 });
             });
         }
