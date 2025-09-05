@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Полный справочник крафта Minecraft</title>
+    <title>Полный справочник крафтов Minecraft</title>
     <style>
         :root {
             --primary: #4CAF50;
@@ -99,15 +99,6 @@
             cursor: pointer;
             transition: all 0.3s;
             font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .category-btn img {
-            height: 20px;
-            width: 20px;
-            object-fit: contain;
         }
         
         .category-btn:hover, .category-btn.active {
@@ -248,7 +239,7 @@
 <body>
     <div class="overlay">
         <header>
-            <h1>Полный справочник крафта Minecraft</h1>
+            <h1>Полный справочник крафтов Minecraft</h1>
             <p>Все рецепты крафта с изображениями предметов</p>
         </header>
         
@@ -263,42 +254,15 @@
             </div>
             
             <div class="categories">
-                <button class="category-btn active" data-category="all">
-                    <img src="https://minecraft.wiki/images/Inventory_slot.png" alt="Все предметы">
-                    Все предметы
-                </button>
-                <button class="category-btn" data-category="tools">
-                    <img src="https://minecraft.wiki/images/Diamond_Pickaxe_JE3_BE3.png" alt="Инструменты">
-                    Инструменты
-                </button>
-                <button class="category-btn" data-category="weapons">
-                    <img src="https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png" alt="Оружие">
-                    Оружие
-                </button>
-                <button class="category-btn" data-category="food">
-                    <img src="https://minecraft.wiki/images/Steak_JE2_BE2.png" alt="Еда">
-                    Еда
-                </button>
-                <button class="category-btn" data-category="building">
-                    <img src="https://minecraft.wiki/images/Bricks_JE6_BE5.png" alt="Строительные блоки">
-                    Блоки
-                </button>
-                <button class="category-btn" data-category="redstone">
-                    <img src="https://minecraft.wiki/images/Redstone_Dust_JE2_BE2.png" alt="Редстоун">
-                    Редстоун
-                </button>
-                <button class="category-btn" data-category="armor">
-                    <img src="https://minecraft.wiki/images/Diamond_Chestplate_JE3_BE2.png" alt="Броня">
-                    Броня
-                </button>
-                <button class="category-btn" data-category="transport">
-                    <img src="https://minecraft.wiki/images/Minecart_JE3_BE2.png" alt="Транспорт">
-                    Транспорт
-                </button>
-                <button class="category-btn" data-category="misc">
-                    <img src="https://minecraft.wiki/images/Compass_JE3_BE3.png" alt="Разное">
-                    Разное
-                </button>
+                <button class="category-btn active" data-category="all">Все предметы</button>
+                <button class="category-btn" data-category="tools">Инструменты</button>
+                <button class="category-btn" data-category="weapons">Оружие</button>
+                <button class="category-btn" data-category="food">Еда</button>
+                <button class="category-btn" data-category="building">Блоки</button>
+                <button class="category-btn" data-category="redstone">Редстоун</button>
+                <button class="category-btn" data-category="armor">Броня</button>
+                <button class="category-btn" data-category="transport">Транспорт</button>
+                <button class="category-btn" data-category="misc">Разное</button>
             </div>
             
             <div class="results" id="results">
@@ -309,231 +273,30 @@
             </div>
             
             <div class="credit">
-                <p>Minecraft является товарным знаком Mojang Synergies AB | Изображения предметов взяты с официального ресурса Minecraft</p>
+                <p>Minecraft является товарным знаком Mojang Synergies AB | Все права защищены</p>
             </div>
         </div>
     </div>
 
     <script>
-        // База данных рецептов крафта с изображениями
-        const items = [
-            {
-                id: 1,
-                name: "Алмазная кирка",
-                category: "tools",
-                image: "https://minecraft.wiki/images/Diamond_Pickaxe_JE3_BE3.png",
-                recipe: [
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png",
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null
-                ],
-                description: "Прочная кирка для добычи редких руд. Добывает обсидиан."
-            },
-            {
-                id: 2,
-                name: "Каменный меч",
-                category: "weapons",
-                image: "https://minecraft.wiki/images/Stone_Sword_JE2_BE2.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Cobblestone_JE4_BE3.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Cobblestone_JE4_BE3.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null
-                ],
-                description: "Основное оружие для защиты от мобов. Урон: 5"
-            },
-            {
-                id: 3,
-                name: "Факел",
-                category: "building",
-                image: "https://minecraft.wiki/images/Torch_JE4_BE2.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Coal_JE3_BE3.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null,
-                    null, 
-                    null, 
-                    null
-                ],
-                description: "Источник света, предотвращающий появление мобов"
-            },
-            {
-                id: 4,
-                name: "Стул",
-                category: "building",
-                image: "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png",
-                recipe: [
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png",
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    null, 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png",
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    null, 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png"
-                ],
-                description: "Декоративный предмет для украшения дома"
-            },
-            {
-                id: 5,
-                name: "Редстоуновый факел",
-                category: "redstone",
-                image: "https://minecraft.wiki/images/Redstone_Torch_JE4_BE3.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Redstone_Dust_JE2_BE2.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null,
-                    null, 
-                    null, 
-                    null
-                ],
-                description: "Источник питания для редстоуновых схем"
-            },
-            {
-                id: 6,
-                name: "Наковальня",
-                category: "tools",
-                image: "https://minecraft.wiki/images/Anvil_JE3_BE2.png",
-                recipe: [
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png",
-                    null, 
-                    "https://minecraft.wiki/images/Iron_Block_JE4_BE3.png", 
-                    null,
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png"
-                ],
-                description: "Ремонтирует и переименовывает предметы"
-            },
-            {
-                id: 7,
-                name: "Алмазный меч",
-                category: "weapons",
-                image: "https://minecraft.wiki/images/Diamond_Sword_JE3_BE3.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    null,
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null
-                ],
-                description: "Мощное оружие. Урон: 7"
-            },
-            {
-                id: 8,
-                name: "Компас",
-                category: "tools",
-                image: "https://minecraft.wiki/images/Compass_JE3_BE3.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    null,
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Redstone_Dust_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png",
-                    null, 
-                    "https://minecraft.wiki/images/Iron_Ingot_JE3_BE2.png", 
-                    null
-                ],
-                description: "Указывает на точку появления"
-            },
-            {
-                id: 9,
-                name: "Алмазная броня",
-                category: "armor",
-                image: "https://minecraft.wiki/images/Diamond_Chestplate_JE3_BE2.png",
-                recipe: [
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    null, 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png",
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png",
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png", 
-                    "https://minecraft.wiki/images/Diamond_JE3_BE3.png"
-                ],
-                description: "Прочная броня с высокой защитой"
-            },
-            {
-                id: 10,
-                name: "Торт",
-                category: "food",
-                image: "https://minecraft.wiki/images/Cake_JE3.png",
-                recipe: [
-                    "https://minecraft.wiki/images/Milk_Bucket_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/Milk_Bucket_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/Milk_Bucket_JE2_BE2.png",
-                    "https://minecraft.wiki/images/Sugar_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/Egg_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/Sugar_JE2_BE2.png",
-                    "https://minecraft.wiki/images/Wheat_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Wheat_JE3_BE2.png", 
-                    "https://minecraft.wiki/images/Wheat_JE3_BE2.png"
-                ],
-                description: "Восстанавливает 7 единиц голода"
-            },
-            {
-                id: 11,
-                name: "Лук",
-                category: "weapons",
-                image: "https://minecraft.wiki/images/Bow_JE2_BE2.png",
-                recipe: [
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/String_JE2_BE2.png",
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    null, 
-                    "https://minecraft.wiki/images/String_JE2_BE2.png",
-                    null, 
-                    "https://minecraft.wiki/images/Stick_JE2_BE2.png", 
-                    "https://minecraft.wiki/images/String_JE2_BE2.png"
-                ],
-                description: "Стреляет стрелами. Урон: 4-9"
-            },
-            {
-                id: 12,
-                name: "Кровать",
-                category: "building",
-                image: "https://minecraft.wiki/images/Red_Bed_JE3_BE3.png",
-                recipe: [
-                    "https://minecraft.wiki/images/White_Wool_JE4_BE3.png", 
-                    "https://minecraft.wiki/images/White_Wool_JE4_BE3.png", 
-                    "https://minecraft.wiki/images/White_W Wool_JE4_BE3.png",
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png", 
-                    "https://minecraft.wiki/images/Oak_Planks_JE6_BE3.png",
-                    null, 
-                    null, 
-                    null
-                ],
-                description: "Позволяет спать и устанавливает точку возрождения"
-            }
-        ];
+        // Загрузка данных из JSON файла
+        let items = [];
+        
+        fetch('crafts.json')
+            .then(response => response.json())
+            .then(data => {
+                items = data;
+                displayItems();
+            })
+            .catch(error => {
+                console.error('Ошибка загрузки данных:', error);
+                document.getElementById('results').innerHTML = `
+                    <div class="empty-state">
+                        <h3>Ошибка загрузки данных</h3>
+                        <p>Попробуйте перезагрузить страницу</p>
+                    </div>
+                `;
+            });
 
         // Элементы DOM
         const searchInput = document.getElementById('search');
@@ -541,4 +304,93 @@
         const categoryBtns = document.querySelectorAll('.category-btn');
         const resultsContainer = document.getElementById('results');
         const totalCountEl = document.getElementById('total-count');
-        const shownCountEl = document.g
+        const shownCountEl = document.getElementById('shown-count');
+        
+        // Текущий фильтр
+        let currentCategory = 'all';
+        let currentSearch = '';
+        
+        // Функция отображения предметов
+        function displayItems() {
+            const filteredItems = items.filter(item => {
+                const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+                const matchesSearch = item.name.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchesCategory && matchesSearch;
+            });
+            
+            resultsContainer.innerHTML = '';
+            
+            if (filteredItems.length === 0) {
+                resultsContainer.innerHTML = `
+                    <div class="empty-state">
+                        <h3>Ничего не найдено</h3>
+                        <p>Попробуйте изменить поисковый запрос или выбрать другую категорию</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            filteredItems.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'item-card';
+                
+                // Создаем сетку крафта
+                let craftGrid = '';
+                for (let i = 0; i < 9; i++) {
+                    const ingredient = item.recipe[i] || '';
+                    if (ingredient) {
+                        craftGrid += `
+                            <div class="craft-slot">
+                                <img src="${ingredient}" alt="Ингредиент">
+                            </div>
+                        `;
+                    } else {
+                        craftGrid += `<div class="craft-slot"></div>`;
+                    }
+                }
+                
+                itemEl.innerHTML = `
+                    <div class="item-header">
+                        <img src="${item.image}" alt="${item.name}">
+                        ${item.name}
+                    </div>
+                    <div class="item-content">
+                        <div class="crafting-grid">
+                            ${craftGrid}
+                        </div>
+                        <p class="item-desc">${item.description}</p>
+                    </div>
+                `;
+                
+                resultsContainer.appendChild(itemEl);
+            });
+            
+            // Обновляем счетчики
+            totalCountEl.textContent = items.length;
+            shownCountEl.textContent = filteredItems.length;
+        }
+        
+        // Обработчики событий
+        searchBtn.addEventListener('click', () => {
+            currentSearch = searchInput.value;
+            displayItems();
+        });
+        
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                currentSearch = searchInput.value;
+                displayItems();
+            }
+        });
+        
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentCategory = btn.dataset.category;
+                displayItems();
+            });
+        });
+    </script>
+</body>
+</html>
