@@ -3,70 +3,35 @@
     "name": "Верстак",
     "category": "building",
     "description": "Основной блок для крафта предметов 3x3",
-    "image": "crafting_table.png",
+    "image": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
     "recipe": ["oak_planks", "oak_planks", null, "oak_planks", "oak_planks", null, null, null, null]
   },
   {
     "name": "Деревянная кирка",
     "category": "tools",
     "description": "Основной инструмент для добычи камня и руд",
-    "image": "wooden_pickaxe.png",
+    "image": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
     "recipe": ["oak_planks", "oak_planks", "oak_planks", null, "stick", null, null, "stick", null]
   },
   {
     "name": "Факел",
     "category": "decoration",
     "description": "Источник света, который можно разместить на стенах",
-    "image": "torch.png",
+    "image": "https://images.unsplash.com/photo-1617704549748-0e61a419c15a?w=200&h=200&fit=crop",
     "recipe": ["coal", null, null, "stick", null, null, null, null, null]
   },
   {
     "name": "Сундук",
     "category": "storage",
     "description": "Блок для хранения предметов",
-    "image": "chest.png",
+    "image": "https://images.unsplash.com/photo-1597848212624-e9f9120b8c40?w=200&h=200&fit=crop",
     "recipe": ["oak_planks", "oak_planks", "oak_planks", "oak_planks", null, "oak_planks", "oak_planks", "oak_planks", "oak_planks"]
   },
   {
     "name": "Каменная печь",
     "category": "building",
     "description": "Используется для плавки руд и приготовления пищи",
-    "image": "furnace.png",
+    "image": "https://images.unsplash.com/photo-1626695431668-1af668331a0f?w=200&h=200&fit=crop",
     "recipe": ["cobblestone", "cobblestone", "cobblestone", "cobblestone", null, "cobblestone", "cobblestone", "cobblestone", "cobblestone"]
-  },
-  {
-    "name": "Деревянный меч",
-    "category": "weapons",
-    "description": "Простое оружие для защиты от мобов",
-    "image": "wooden_sword.png",
-    "recipe": [null, "oak_planks", null, null, "oak_planks", null, null, "stick", null]
-  },
-  {
-    "name": "Кожаная шапка",
-    "category": "armor",
-    "description": "Броня для головы, защищает от урона",
-    "image": "leather_helmet.png",
-    "recipe": ["leather", "leather", "leather", "leather", null, "leather", null, null, null]
-  },
-  {
-    "name": "Хлеб",
-    "category": "food",
-    "description": "Простая пища, восстанавливающая голод",
-    "image": "bread.png",
-    "recipe": [null, null, null, "wheat", "wheat", "wheat", null, null, null]
-  },
-  {
-    "name": "Редстоуновый факел",
-    "category": "redstone",
-    "description": "Источник питания для редстоуновых схем",
-    "image": "redstone_torch.png",
-    "recipe": ["redstone", null, null, "stick", null, null, null, null, null]
-  },
-  {
-    "name": "Наковальня",
-    "category": "tools",
-    "description": "Позволяет чинить и переименовывать предметы",
-    "image": "anvil.png",
-    "recipe": ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
   }
 ]
