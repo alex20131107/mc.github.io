@@ -70,23 +70,79 @@
     "recipe": ["iron_block", "iron_block", "iron_block", null, "iron_ingot", null, "iron_ingot", "iron_ingot", "iron_ingot"]
   },
   {
+    "name": "Каменный меч",
+    "category": "weapons",
+    "description": "Более прочное оружие из камня",
+    "image": "stone_sword.png",
+    "recipe": [null, "cobblestone", null, null, "cobblestone", null, null, "stick", null]
+  },
+  {
+    "name": "Железный меч",
+    "category": "weapons",
+    "description": "Прочное оружие из железа",
+    "image": "iron_sword.png",
+    "recipe": [null, "iron_ingot", null, null, "iron_ingot", null, null, "stick", null]
+  },
+  {
+    "name": "Золотой меч",
+    "category": "weapons",
+    "description": "Быстрое, но недолговечное оружие из золота",
+    "image": "golden_sword.png",
+    "recipe": [null, "gold_ingot", null, null, "gold_ingot", null, null, "stick", null]
+  },
+  {
+    "name": "Алмазный меч",
+    "category": "weapons",
+    "description": "Самое прочное оружие из алмазов",
+    "image": "diamond_sword.png",
+    "recipe": [null, "diamond", null, null, "diamond", null, null, "stick", null]
+  },
+  {
+    "name": "Каменная кирка",
+    "category": "tools",
+    "description": "Кирка из камня для добычи железной руды",
+    "image": "stone_pickaxe.png",
+    "recipe": ["cobblestone", "cobblestone", "cobblestone", null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Железная кирка",
+    "category": "tools",
+    "description": "Кирка из железа для добычи алмазов",
+    "image": "iron_pickaxe.png",
+    "recipe": ["iron_ingot", "iron_ingot", "iron_ingot", null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Золотая кирка",
+    "category": "tools",
+    "description": "Быстрая, но недолговечная кирка из золота",
+    "image": "golden_pickaxe.png",
+    "recipe": ["gold_ingot", "gold_ingot", "gold_ingot", null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Алмазная кирка",
+    "category": "tools",
+    "description": "Самая прочная кирка из алмазов",
+    "image": "diamond_pickaxe.png",
+    "recipe": ["diamond", "diamond", "diamond", null, "stick", null, null, "stick", null]
+  },
+  {
     "name": "Поршень",
     "category": "redstone",
-    "description": "Толкает блоки при получении редстоун сигнала",
+    "description": "Блок, который может толкать другие блоки при активации редстоуном",
     "image": "piston.png",
-    "recipe": ["oak_planks", "oak_planks", "oak_planks", "cobblestone", "iron_ingot", "cobblestone", "cobblestone", "redstone", "cobblestone"]
+    "recipe": ["oak_planks", "oak_planks", "oak_planks", "cobblestone", "iron_ingot", "cobblestone", null, "redstone", null]
   },
   {
     "name": "Блок редстоуна",
     "category": "redstone",
-    "description": "Декоративный блок и компонент для редстоун схем",
+    "description": "Блок, который может передавать редстоун сигнал и используется в крафте",
     "image": "redstone_block.png",
     "recipe": ["redstone", "redstone", "redstone", "redstone", "redstone", "redstone", "redstone", "redstone", "redstone"]
   },
   {
     "name": "Дубовый забор",
-    "category": "decoration",
-    "description": "Декоративный блок для ограждений",
+    "category": "building",
+    "description": "Декоративный блок, который можно использовать как ограждение",
     "image": "oak_fence.png",
     "recipe": ["oak_planks", "stick", "oak_planks", "oak_planks", "stick", "oak_planks", null, null, null]
   }
