@@ -229,5 +229,40 @@
   "description": "Декоративный блок из алмазов, также используется для хранения алмазов",
   "image": "diamond_block.png",
   "recipe": ["diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond"]
+},
+{
+  "name": "Деревянная мотыга",
+  "category": "tools",
+  "description": "Инструмент для обработки земли и создания грядок",
+  "image": "wooden_hoe.png",
+  "recipe": ["oak_planks", "oak_planks", null, null, "stick", null, null, "stick", null]
+},
+{
+  "name": "Каменная мотыга",
+  "category": "tools",
+  "description": "Более прочная мотыга из камня",
+  "image": "stone_hoe.png",
+  "recipe": ["cobblestone", "cobblestone", null, null, "stick", null, null, "stick", null]
+},
+{
+  "name": "Железная мотыга",
+  "category": "tools",
+  "description": "Прочная мотыга из железа",
+  "image": "iron_hoe.png",
+  "recipe": ["iron_ingot", "iron_ingot", null, null, "stick", null, null, "stick", null]
+},
+{
+  "name": "Золотая мотыга",
+  "category": "tools",
+  "description": "Быстрая, но недолговечная мотыга из золота",
+  "image": "golden_hoe.png",
+  "recipe": ["gold_ingot", "gold_ingot", null, null, "stick", null, null, "stick", null]
+},
+{
+  "name": "Алмазная мотыга",
+  "category": "tools",
+  "description": "Самая прочная мотыга из алмазов",
+  "image": "diamond_hoe.png",
+  "recipe": ["diamond", "diamond", null, null, "stick", null, null, "stick", null]
 }
 ]
