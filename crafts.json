@@ -264,5 +264,40 @@
   "description": "Самая прочная мотыга из алмазов",
   "image": "diamond_hoe.png",
   "recipe": ["diamond", "diamond", null, null, "stick", null, null, "stick", null]
+},
+{
+  "name": "Ведро",
+  "category": "tools",
+  "description": "Используется для переноса жидкостей - воды, лавы или молока",
+  "image": "bucket.png",
+  "recipe": ["iron_ingot", null, "iron_ingot", null, "iron_ingot", null, null, null, null]
+},
+{
+  "name": "Железный блок",
+  "category": "building",
+  "description": "Декоративный блок из железа, также используется для хранения железных слитков",
+  "image": "iron_block.png",
+  "recipe": ["iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot", "iron_ingot"]
+},
+{
+  "name": "Медный блок",
+  "category": "building",
+  "description": "Декоративный блок из меди, который со временем окисляется",
+  "image": "copper_block.png",
+  "recipe": ["copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot", "copper_ingot"]
+},
+{
+  "name": "Блок необработанного железа",
+  "category": "building",
+  "description": "Блок из необработанного железа, используется для хранения",
+  "image": "raw_iron_block.png",
+  "recipe": ["raw_iron", "raw_iron", "raw_iron", "raw_iron", "raw_iron", "raw_iron", "raw_iron", "raw_iron", "raw_iron"]
+},
+{
+  "name": "Блок необработанной меди",
+  "category": "building",
+  "description": "Блок из необработанной меди, используется для хранения",
+  "image": "raw_copper_block.png",
+  "recipe": ["raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper"]
 }
 ]
