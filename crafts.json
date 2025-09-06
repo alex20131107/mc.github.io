@@ -145,5 +145,75 @@
     "description": "Декоративный блок, который можно использовать как ограждение",
     "image": "oak_fence.png",
     "recipe": ["oak_planks", "stick", "oak_planks", "oak_planks", "stick", "oak_planks", null, null, null]
+  },
+  {
+    "name": "Деревянный топор",
+    "category": "tools",
+    "description": "Инструмент для рубки дерева",
+    "image": "wooden_axe.png",
+    "recipe": ["oak_planks", "oak_planks", null, "oak_planks", "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Каменный топор",
+    "category": "tools",
+    "description": "Более прочный топор из камня",
+    "image": "stone_axe.png",
+    "recipe": ["cobblestone", "cobblestone", null, "cobblestone", "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Железный топор",
+    "category": "tools",
+    "description": "Прочный топор из железа",
+    "image": "iron_axe.png",
+    "recipe": ["iron_ingot", "iron_ingot", null, "iron_ingot", "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Золотой топор",
+    "category": "tools",
+    "description": "Быстрый, но недолговечный топор из золота",
+    "image": "golden_axe.png",
+    "recipe": ["gold_ingot", "gold_ingot", null, "gold_ingot", "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Алмазный топор",
+    "category": "tools",
+    "description": "Самый прочный топор из алмазов",
+    "image": "diamond_axe.png",
+    "recipe": ["diamond", "diamond", null, "diamond", "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Деревянная лопата",
+    "category": "tools",
+    "description": "Инструмент для копания земли и песка",
+    "image": "wooden_shovel.png",
+    "recipe": [null, "oak_planks", null, null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Каменная лопата",
+    "category": "tools",
+    "description": "Более прочная лопата из камня",
+    "image": "stone_shovel.png",
+    "recipe": [null, "cobblestone", null, null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Железная лопата",
+    "category": "tools",
+    "description": "Прочная лопата из железа",
+    "image": "iron_shovel.png",
+    "recipe": [null, "iron_ingot", null, null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Золотая лопата",
+    "category": "tools",
+    "description": "Быстрая, но недолговечная лопата из золота",
+    "image": "golden_shovel.png",
+    "recipe": [null, "gold_ingot", null, null, "stick", null, null, "stick", null]
+  },
+  {
+    "name": "Алмазная лопата",
+    "category": "tools",
+    "description": "Самая прочная лопата из алмазов",
+    "image": "diamond_shovel.png",
+    "recipe": [null, "diamond", null, null, "stick", null, null, "stick", null]
   }
 ]
