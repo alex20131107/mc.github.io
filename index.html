@@ -134,6 +134,27 @@
             color: #ccc;
         }
         
+        .craft-type {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 8px;
+            background-color: #3d3d3d;
+            border-radius: 5px;
+            gap: 10px;
+        }
+        
+        .craft-type-icon {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+        
+        .craft-type-text {
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
         .craft-recipe {
             margin-top: 15px;
         }
@@ -178,13 +199,6 @@
         .loading {
             text-align: center;
             padding: 20px;
-            font-size: 1.2rem;
-        }
-        
-        .error {
-            text-align: center;
-            padding: 20px;
-            color: #ff5555;
             font-size: 1.2rem;
         }
         
@@ -237,43 +251,59 @@
     </footer>
 
     <script>
-        // Глобальные переменные для хранения данных
-        let allCrafts = [];
-        let filteredCrafts = [];
-        
-        // Загрузка данных из crafts.json
+        // Функция для определения типа крафта
+        function getCraftType(recipe) {
+            if (!recipe) return { type: 'inventory', name: 'Инвентарь', icon: 'inventory.png' };
+            
+            // Проверяем, требует ли крафт верстака (3x3 сетка с заполнением)
+            const has3x3Pattern = recipe.filter(item => item !== null).length > 4;
+            
+            // Проверяем, требует ли крафт печки (специфические рецепты плавки)
+            const isFurnaceRecipe = recipe.length === 1 || 
+                                  (recipe.length === 2 && recipe[1] === null);
+            
+            if (has3x3Pattern) {
+                return { type: 'crafting_table', name: 'Верстак', icon: 'crafting_table.png' };
+            } else if (isFurnaceRecipe) {
+                return { type: 'furnace', name: 'Печка', icon: 'furnace.png' };
+            } else {
+                return { type: 'inventory', name: 'Инвентарь', icon: 'inventory.png' };
+            }
+        }
+
+        // Загрузка данных о крафтах
         async function loadCrafts() {
             try {
                 const response = await fetch('crafts.json');
-                if (!response.ok) {
-                    throw new Error('Не удалось загрузить crafts.json');
-                }
-                allCrafts = await response.json();
-                filteredCrafts = [...allCrafts];
-                displayCrafts();
-                setupSearch();
-                setupCategoryFilter();
+                const crafts = await response.json();
+                displayCrafts(crafts);
+                setupSearch(crafts);
+                setupCategoryFilter(crafts);
             } catch (error) {
                 console.error('Ошибка загрузки данных:', error);
                 document.getElementById('crafts-container').innerHTML = 
-                    '<div class="error">Ошибка загрузки данных: ' + error.message + '</div>';
+                    '<p>Не удалось загрузить данные о крафтах.</p>';
             }
         }
         
         // Отображение крафтов
-        function displayCrafts() {
+        function displayCrafts(crafts, filteredCrafts = null) {
             const container = document.getElementById('crafts-container');
+            const craftsToDisplay = filteredCrafts || crafts;
             
-            if (filteredCrafts.length === 0) {
+            if (craftsToDisplay.length === 0) {
                 container.innerHTML = '<p class="loading">Крафты не найдены.</p>';
                 return;
             }
             
             container.innerHTML = '';
             
-            filteredCrafts.forEach(craft => {
+            craftsToDisplay.forEach(craft => {
                 const card = document.createElement('div');
                 card.className = 'craft-card';
+                
+                // Определяем тип крафта
+                const craftType = getCraftType(craft.recipe);
                 
                 // Формируем сетку крафта
                 let recipeGrid = '';
@@ -299,6 +329,12 @@
                         <h2 class="craft-title">${craft.name}</h2>
                         <span class="craft-category">${craft.category}</span>
                         <p class="craft-description">${craft.description}</p>
+                        
+                        <div class="craft-type">
+                            <img class="craft-type-icon" src="png/${craftType.icon}" alt="${craftType.name}" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2224%22 height=%2224%22 viewBox=%220 0 24 24%22><rect width=%2224%22 height=%2224%22 fill=%22%23333%22 /><text x=%2212%22 y=%2212%22 font-family=%22Arial%22 font-size=%228%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22>${craftType.name.charAt(0)}</text></svg>'">
+                            <span class="craft-type-text">Крафтится в: ${craftType.name}</span>
+                        </div>
+                        
                         <div class="craft-recipe">
                             <div class="recipe-title">Рецепт:</div>
                             ${recipeGrid}
@@ -311,30 +347,29 @@
         }
         
         // Настройка поиска
-        function setupSearch() {
+        function setupSearch(crafts) {
             const searchInput = document.getElementById('search');
             
             searchInput.addEventListener('input', () => {
                 const searchTerm = searchInput.value.toLowerCase();
                 
                 if (searchTerm.length < 2) {
-                    filteredCrafts = [...allCrafts];
-                    displayCrafts();
+                    displayCrafts(crafts);
                     return;
                 }
                 
-                filteredCrafts = allCrafts.filter(craft => 
+                const filteredCrafts = crafts.filter(craft => 
                     craft.name.toLowerCase().includes(searchTerm) ||
                     craft.description.toLowerCase().includes(searchTerm) ||
                     craft.category.toLowerCase().includes(searchTerm)
                 );
                 
-                displayCrafts();
+                displayCrafts(crafts, filteredCrafts);
             });
         }
         
         // Настройка фильтра по категориям
-        function setupCategoryFilter() {
+        function setupCategoryFilter(crafts) {
             const categoryButtons = document.querySelectorAll('.category-btn');
             
             categoryButtons.forEach(button => {
@@ -347,13 +382,13 @@
                     const category = button.getAttribute('data-category');
                     
                     if (category === 'all') {
-                        filteredCrafts = [...allCrafts];
+                        displayCrafts(crafts);
                     } else {
-                        filteredCrafts = allCrafts.filter(craft => 
+                        const filteredCrafts = crafts.filter(craft => 
                             craft.category === category
                         );
+                        displayCrafts(crafts, filteredCrafts);
                     }
-                    displayCrafts();
                 });
             });
         }
