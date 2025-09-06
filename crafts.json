@@ -299,5 +299,19 @@
   "description": "Блок из необработанной меди, используется для хранения",
   "image": "raw_copper_block.png",
   "recipe": ["raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper", "raw_copper"]
+},
+{
+  "name": "Золотой блок",
+  "category": "building",
+  "description": "Декоративный блок из золотых слитков, также используется для хранения золота",
+  "image": "gold_block.png",
+  "recipe": ["gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot", "gold_ingot"]
+},
+{
+  "name": "Блок необработанного золота",
+  "category": "building",
+  "description": "Блок из необработанного золота, можно переплавить в золотые слитки",
+  "image": "raw_gold_block.png",
+  "recipe": ["raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold"]
 }
 ]
