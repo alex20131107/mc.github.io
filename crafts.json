@@ -215,5 +215,19 @@
     "description": "Самая прочная лопата из алмазов",
     "image": "diamond_shovel.png",
     "recipe": [null, "diamond", null, null, "stick", null, null, "stick", null]
-  }
+  },
+  {
+  "name": "Липкий поршень",
+  "category": "redstone",
+  "description": "Поршень, который может тянуть блоки при отключении питания",
+  "image": "sticky_piston.png",
+  "recipe": [null, "slime_ball", null, null, "piston", null, null, null, null]
+},
+{
+  "name": "Алмазный блок",
+  "category": "building",
+  "description": "Декоративный блок из алмазов, также используется для хранения алмазов",
+  "image": "diamond_block.png",
+  "recipe": ["diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond", "diamond"]
+}
 ]
