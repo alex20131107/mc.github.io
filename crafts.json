@@ -313,5 +313,26 @@
   "description": "Блок из необработанного золота, можно переплавить в золотые слитки",
   "image": "raw_gold_block.png",
   "recipe": ["raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold", "raw_gold"]
+},
+{
+  "name": "Огниво",
+  "category": "tools",
+  "description": "Инструмент для разведения огня",
+  "image": "flint_and_steel.png",
+  "recipe": [null, "iron_ingot", null, null, "flint", null, null, null, null]
+},
+{
+  "name": "Сноп сена",
+  "category": "building",
+  "description": "Декоративный блок из пшеницы, также может использоваться как корм для лошадей",
+  "image": "hay_block.png",
+  "recipe": ["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat"]
+},
+{
+  "name": "Изумрудный блок",
+  "category": "building",
+  "description": "Декоративный блок из изумрудов, также используется для хранения изумрудов",
+  "image": "emerald_block.png",
+  "recipe": ["emerald", "emerald", "emerald", "emerald", "emerald", "emerald", "emerald", "emerald", "emerald"]
 }
 ]
