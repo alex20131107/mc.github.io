@@ -329,7 +329,7 @@
   "recipe": ["wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat", "wheat"]
 },
 {
-  "name": "Изумрудный блок",
+  "name": "Изумрудный  блок",
   "category": "building",
   "description": "Декоративный блок из изумрудов, также используется для хранения изумрудов",
   "image": "emerald_block.png",
